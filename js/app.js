@@ -16,7 +16,7 @@ class Enemy {
     this.speed = Math.floor(Math.random() * 50) + 25;
   };
 
-  collision() {
+  CheckCollisions() {
     if( (player.x > this.x - 90) && (player.x < this.x + 90) ) {
       if( (player.y > this.y - 85) && (player.y < this.y + 85) ) {
         if (player.lives < 1) {
@@ -48,7 +48,7 @@ class Enemy {
   };
 
   update(dt) {
-    this.collision();
+    this.CheckCollisions();
 
     let movement = (this.speed * dt);
 
@@ -75,7 +75,6 @@ class Player {
     this.lvl = 0;
     this.lives = 3;
   }
-
 
   update() {
     if((this.x > 300) && (this.x < 500)) {
